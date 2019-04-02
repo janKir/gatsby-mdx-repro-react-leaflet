@@ -1,0 +1,48 @@
+Logging system initialised at Tue Apr 02 2019 14:48:28 GMT+0200 (Mitteleuropäische Sommerzeit) common.js:199:17
+[HMR] connected client.js:92
+The above error occurred in the <Map> component:
+    in Map (created by MDXContent)
+    in div (created by MDXTag)
+    in MDXTag (created by Context.Consumer)
+    in Component (created by MDXContent)
+    in MDXContent (created by Component)
+    in Component (created by Context.Consumer)
+    in Component (created by Context.Consumer)
+    in Component (at template.js:11)
+    in div (created by Context.Consumer)
+    in StaticQuery (created by Layout)
+    in Layout (at template.js:9)
+    in _default (created by HotExported_default)
+    in AppContainer (created by HotExported_default)
+    in HotExported_default (created by PageRenderer)
+    in PageRenderer (created by JSONStore)
+    in JSONStore (created by EnsureResources)
+    in ScrollContext (created by EnsureResources)
+    in RouteUpdates (created by EnsureResources)
+    in EnsureResources (created by RouteHandler)
+    in RouteHandler (created by Root)
+    in div (created by FocusHandlerImpl)
+    in FocusHandlerImpl (created by Context.Consumer)
+    in FocusHandler (created by RouterImpl)
+    in RouterImpl (created by LocationProvider)
+    in LocationProvider (created by Context.Consumer)
+    in Location (created by Context.Consumer)
+    in Router (created by Root)
+    in Root
+    in MDXProvider (created by Component)
+    in MDXScopeProvider (created by Component)
+    in Component (created by Context.Consumer)
+    in Component
+    in _default
+
+React will try to recreate this component tree from scratch using the error boundary you provided, AppContainer. index.js:2177
+    React 14
+    unstable_runWithPriority scheduler.development.js:255
+    React 14
+    js app.js:56
+TypeError: "calling a builtin Map constructor without new is forbidden"
+    React 20
+    js app.js:56
+index.js:2177
+unreachable code after return statement[Weitere Informationen] bootstrap:68
+TypeError: calling a builtin Map constructor without new is forbidden

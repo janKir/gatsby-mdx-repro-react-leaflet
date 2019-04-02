@@ -1,0 +1,278 @@
+TypeError: calling a builtin Map constructor without new is forbidden
+ProxyFacade
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-hot-loader/dist/react-hot-loader.development.js:791
+
+  788 | 
+  789 | // eslint-disable-next-line func-names
+  790 | _ProxyFacade = function ProxyFacade(props, context) {
+> 791 |   var result = CurrentComponent(props, context);
+  792 | 
+  793 |   // This is a Relay-style container constructor. We can't do the prototype-
+  794 |   // style wrapping for this as we do elsewhere, so just we just pass it
+
+renderWithHooks
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:12903
+
+  12900 |   }
+  12901 | }
+  12902 | 
+> 12903 | var children = Component(props, refOrContext);
+  12904 | 
+  12905 | if (didScheduleRenderPhaseUpdate) {
+  12906 |   do {
+
+mountIndeterminateComponent
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:14985
+
+  14982 |   }
+  14983 | 
+  14984 |   ReactCurrentOwner$3.current = workInProgress;
+> 14985 |   value = renderWithHooks(null, workInProgress, Component, props, context, renderExpirationTime);
+  14986 | }
+  14987 | // React DevTools reads this flag.
+  14988 | workInProgress.effectTag |= PerformedWork;
+
+beginWork
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:15590
+
+  15587 | case IndeterminateComponent:
+  15588 |   {
+  15589 |     var elementType = workInProgress.elementType;
+> 15590 |     return mountIndeterminateComponent(current$$1, workInProgress, elementType, renderExpirationTime);
+  15591 |   }
+  15592 | case LazyComponent:
+  15593 |   {
+
+performUnitOfWork
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:19277
+
+  19274 |   startProfilerTimer(workInProgress);
+  19275 | }
+  19276 | 
+> 19277 | next = beginWork(current$$1, workInProgress, nextRenderExpirationTime);
+  19278 | workInProgress.memoizedProps = workInProgress.pendingProps;
+  19279 | 
+  19280 | if (workInProgress.mode & ProfileMode) {
+
+workLoop
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:19317
+
+  19314 | if (!isYieldy) {
+  19315 |   // Flush work without yielding
+  19316 |   while (nextUnitOfWork !== null) {
+> 19317 |     nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
+  19318 |   }
+  19319 | } else {
+  19320 |   // Flush asynchronous work until there's a higher priority event
+
+callCallback
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:149
+
+  146 |     window.event = windowEvent;
+  147 |   }
+  148 | 
+> 149 |   func.apply(context, funcArgs);
+  150 |   didError = false;
+  151 | }
+  152 | 
+
+invokeGuardedCallbackDev
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:199
+
+  196 | // Synchronously dispatch our fake event. If the user-provided function
+  197 | // errors, it will trigger our global error handler.
+  198 | evt.initEvent(evtType, false, false);
+> 199 | fakeNode.dispatchEvent(evt);
+  200 | 
+  201 | if (windowEventDescriptor) {
+  202 |   Object.defineProperty(window, 'event', windowEventDescriptor);
+
+invokeGuardedCallback
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:256
+
+  253 | function invokeGuardedCallback(name, func, context, a, b, c, d, e, f) {
+  254 |   hasError = false;
+  255 |   caughtError = null;
+> 256 |   invokeGuardedCallbackImpl$1.apply(reporter, arguments);
+  257 | }
+  258 | 
+  259 | /**
+
+replayUnitOfWork
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:18543
+
+  18540 | // Replay the begin phase.
+  18541 | isReplayingFailedUnitOfWork = true;
+  18542 | originalReplayError = thrownValue;
+> 18543 | invokeGuardedCallback(null, workLoop, null, isYieldy);
+  18544 | isReplayingFailedUnitOfWork = false;
+  18545 | originalReplayError = null;
+  18546 | if (hasCaughtError()) {
+
+renderRoot
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:19433
+
+  19430 | if (true && replayFailedUnitOfWorkWithInvokeGuardedCallback) {
+  19431 |   if (mayReplay) {
+  19432 |     var failedUnitOfWork = nextUnitOfWork;
+> 19433 |     replayUnitOfWork(failedUnitOfWork, thrownValue, isYieldy);
+  19434 |   }
+  19435 | }
+  19436 | 
+
+performWorkOnRoot
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20307
+
+  20304 |   // $FlowFixMe Complains noTimeout is not a TimeoutID, despite the check above
+  20305 |   cancelTimeout(timeoutHandle);
+  20306 | }
+> 20307 | renderRoot(root, isYieldy);
+  20308 | finishedWork = root.finishedWork;
+  20309 | if (finishedWork !== null) {
+  20310 |   // We've completed the root. Commit it.
+
+performWork
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20219
+
+  20216 |   }
+  20217 | } else {
+  20218 |   while (nextFlushedRoot !== null && nextFlushedExpirationTime !== NoWork && minExpirationTime <= nextFlushedExpirationTime) {
+> 20219 |     performWorkOnRoot(nextFlushedRoot, nextFlushedExpirationTime, false);
+  20220 |     findHighestPriorityRoot();
+  20221 |   }
+  20222 | }
+
+performSyncWork
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20193
+
+  20190 | }
+  20191 | 
+  20192 | function performSyncWork() {
+> 20193 |   performWork(Sync, false);
+  20194 | }
+  20195 | 
+  20196 | function performWork(minExpirationTime, isYieldy) {
+
+requestWork
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20062
+
+  20059 | 
+  20060 | // TODO: Get rid of Sync and use current time?
+  20061 | if (expirationTime === Sync) {
+> 20062 |   performSyncWork();
+  20063 | } else {
+  20064 |   scheduleCallbackWithExpirationTime(root, expirationTime);
+  20065 | }
+
+scheduleWork
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:19876
+
+  19873 | // ...unless this is a different root than the one we're rendering.
+  19874 | nextRoot !== root) {
+  19875 |   var rootExpirationTime = root.expirationTime;
+> 19876 |   requestWork(root, rootExpirationTime);
+  19877 | }
+  19878 | if (nestedUpdateCount > NESTED_UPDATE_LIMIT) {
+  19879 |   // Reset this back to zero so subsequent updates don't throw.
+
+scheduleRootUpdate
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20537
+
+  20534 | 
+  20535 |   flushPassiveEffects();
+  20536 |   enqueueUpdate(current$$1, update);
+> 20537 |   scheduleWork(current$$1, expirationTime);
+  20538 | 
+  20539 |   return expirationTime;
+  20540 | }
+
+updateContainerAtExpirationTime
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20565
+
+  20562 |     container.pendingContext = context;
+  20563 |   }
+  20564 | 
+> 20565 |   return scheduleRootUpdate(current$$1, element, expirationTime, callback);
+  20566 | }
+  20567 | 
+  20568 | function findHostInstance(component) {
+
+updateContainer
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20622
+
+  20619 |   var current$$1 = container.current;
+  20620 |   var currentTime = requestCurrentTime();
+  20621 |   var expirationTime = computeExpirationForFiber(currentTime, current$$1);
+> 20622 |   return updateContainerAtExpirationTime(element, container, parentComponent, expirationTime, callback);
+  20623 | }
+  20624 | 
+  20625 | function getPublicRootInstance(container) {
+
+./node_modules/react-dom/cjs/react-dom.development.js/ReactRoot.prototype.render
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20918
+
+  20915 |   if (callback !== null) {
+  20916 |     work.then(callback);
+  20917 |   }
+> 20918 |   updateContainer(children, root, null, work._onCommit);
+  20919 |   return work;
+  20920 | };
+  20921 | ReactRoot.prototype.unmount = function (callback) {
+
+legacyRenderSubtreeIntoContainer/<
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:21055
+
+  21052 |     if (parentComponent != null) {
+  21053 |       root.legacy_renderSubtreeIntoContainer(parentComponent, children, callback);
+  21054 |     } else {
+> 21055 |       root.render(children, callback);
+  21056 |     }
+  21057 |   });
+  21058 | } else {
+
+unbatchedUpdates
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:20424
+
+  20421 |       isUnbatchingUpdates = false;
+  20422 |     }
+  20423 |   }
+> 20424 |   return fn(a);
+  20425 | }
+  20426 | 
+  20427 | // TODO: Batching should be implemented at the renderer level, not within
+
+legacyRenderSubtreeIntoContainer
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:21051
+
+  21048 |   };
+  21049 | }
+  21050 | // Initial mount should not be batched.
+> 21051 | unbatchedUpdates(function () {
+  21052 |   if (parentComponent != null) {
+  21053 |     root.legacy_renderSubtreeIntoContainer(parentComponent, children, callback);
+  21054 |   } else {
+
+render
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/node_modules/react-dom/cjs/react-dom.development.js:21120
+
+  21117 |   {
+  21118 |     !!container._reactHasBeenPassedToCreateRootDEV ? warningWithoutStack$1(false, 'You are calling ReactDOM.render() on a container that was previously ' + 'passed to ReactDOM.%s(). This is not supported. ' + 'Did you mean to call root.render(element)?', enableStableConcurrentModeAPIs ? 'createRoot' : 'unstable_createRoot') : void 0;
+  21119 |   }
+> 21120 |   return legacyRenderSubtreeIntoContainer(null, element, container, false, callback);
+  21121 | },
+  21122 | unstable_renderSubtreeIntoContainer: function (parentComponent, element, containerNode, callback) {
+  21123 |   !isValidContainer(containerNode) ? invariant(false, 'Target container is not a DOM element.') : void 0;
+
+./.cache/app.js/</</</<
+C:/Users/Jan/Code/Gatsby/my-mdx-starter/.cache/app.js:56
+
+  53 | const preferDefault = m => (m && m.default) || m
+  54 | let Root = preferDefault(require(`./root`))
+  55 | domReady(() => {
+> 56 |   renderer(<Root />, rootElement, () => {
+  57 |     postInitialRenderWork()
+  58 |     apiRunner(`onInitialClientRender`)
+  59 |   })
+
+This screen is visible only in development. It will not appear if the app crashes in production.
+Open your browser’s developer console to further inspect this error.
