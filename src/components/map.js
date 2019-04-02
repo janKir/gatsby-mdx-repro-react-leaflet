@@ -11,7 +11,7 @@ export default () => {
           attribution="..."
         />
         <Marker position={position}>
-          <Popup>My Marker</Popup>
+          <Popup>My Marker2</Popup>
         </Marker>
       </Map>
     );
